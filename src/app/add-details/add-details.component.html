@@ -1,0 +1,7 @@
+<form [formGroup]="addAccountForm" (submit)="submitAccount()">
+    <label for="accountDescription">
+        Account Description
+    </label>
+    <input type="text" style="margin-right:2%" id="accountDescription" formControlName="accountDescriptionCtrl">
+    <button type="submit" style="background-color: cadetblue" [disabled]="addAccountForm.pristine || addAccountForm.invalid">Create Account</button>
+</form>

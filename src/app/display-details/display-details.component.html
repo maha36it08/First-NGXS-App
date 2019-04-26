@@ -1,0 +1,13 @@
+<h2>Montoya Accounts ({{ uncheckedAccounts | async }})</h2>
+{{(accounts | async)|json}}
+<hr>
+<ul *ngIf="(accounts | async).length > 0">
+  <li class="account-item" *ngFor="let account of accounts | async">
+    <input type="checkbox" [checked]="account.active" (change)="toggleAccount(account)">
+    <button type="button" (click)="deleteAccount(account)">Delete</button>
+    {{ account.accountDescription }} <span style="border-left:1px solid #999">{{ account.active }}</span>
+  </li>
+</ul>
+<p *ngIf="(accounts | async).length == 0">
+  You dont have any account details with Montoya!
+</p>
